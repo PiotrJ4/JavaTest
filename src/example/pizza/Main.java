@@ -2,8 +2,19 @@ package example.pizza;
 
 public class Main {
     public static void main(String[] args) {
-        Pizza margherita = new Pizza(2, 0, 0, 0, 0, Pizza.Size.SMALL);
-        Pizza supreme = new Pizza(2, 1, 2, 1, 2, Pizza.Size.LARGE);
+        Pizza margherita = new Pizza.Builder()
+                .size(Pizza.Size.SMALL)
+                .cheese(2)
+                .build();
+
+        Pizza supreme = new Pizza.Builder()
+                .size(Pizza.Size.LARGE)
+                .cheese(2)
+                .ham(1)
+                .mushrooms(2)
+                .olives(1)
+                .pepperoni(2)
+                .build();
 
         System.out.println(margherita);
         System.out.println(supreme);
