@@ -66,7 +66,7 @@ public class Pizza {
                 '}';
     }
 
-    public static class Builder {
+    public static class Builder implements PizzaBuilder {
         private Size size;
         private int cheese = 0;
         private int ham = 0;
@@ -81,6 +81,7 @@ public class Pizza {
             this.size = size;
         }
 
+        @Override
         public Builder reset() {
             this.size = null;
             this.cheese = 0;
@@ -91,31 +92,37 @@ public class Pizza {
             return this;
         }
 
+        @Override
         public Builder size(Size size) {
             this.size = size;
             return this;
         }
 
+        @Override
         public Builder cheese(int cheese) {
             this.cheese = cheese;
             return this;
         }
 
+        @Override
         public Builder ham(int ham) {
             this.ham = ham;
             return this;
         }
 
+        @Override
         public Builder mushrooms(int mushrooms) {
             this.mushrooms = mushrooms;
             return this;
         }
 
+        @Override
         public Builder olives(int olives) {
             this.olives = olives;
             return this;
         }
 
+        @Override
         public Builder pepperoni(int pepperoni) {
             this.pepperoni = pepperoni;
             return this;
@@ -123,6 +130,10 @@ public class Pizza {
 
         public Pizza build() {
             return new Pizza(this);
+        }
+
+        public Pizza getResult() {
+            return build();
         }
     }
 }
