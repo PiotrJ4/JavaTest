@@ -81,6 +81,16 @@ public class Pizza {
             this.size = size;
         }
 
+        public Builder reset() {
+            this.size = null;
+            this.cheese = 0;
+            this.ham = 0;
+            this.mushrooms = 0;
+            this.olives = 0;
+            this.pepperoni = 0;
+            return this;
+        }
+
         public Builder size(Size size) {
             this.size = size;
             return this;
